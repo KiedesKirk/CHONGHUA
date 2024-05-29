@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Queue System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="number"], button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            height: 40px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .box {
+            flex: 1;
+            padding: 20px;
+            margin: 10px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px;
+            margin-top: 5px;
+            background-color: #dee2e6;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>For Parking</h1>
+    <div class="container">
+        <div class="controls">
+            <input type="number" id="newParkingItem" placeholder="Enter ID number">
+            <button id="enqueueButton" onclick="enqueue()">Add to Queue</button>
+            <button id="dequeueButton" onclick="dequeue()">Proceed to Ready</button>
+            <button id="moveToParkedButton" onclick="moveToParked()">Move to Parked Cars</button> 
+        </div>
+        <div class="box">
+            <h2>Parking Queue:</h2>
+            <ul id="parkingQueueList"></ul>
+        </div>        
+        <div class="box">
+            <h2>Ready Queue:</h2>
+            <ul id="processedQueueList"></ul>
+        </div>
+        <div class="box">
+            <h2>Parked Cars:</h2>
+            <ul id="parkedCarsList"></ul>
+        </div>
+    </div>
+    <br/>
+    <h1>For Pick-up</h1>
+    <div class="container">
+        <div class="controls">            
+            <input type="number" id="pickupItem" placeholder="Enter ID number">
+            <button id="pickupAddButton" onclick="addToPickupQueue()">Add to Pick-up Queue</button>
+            <button id="pickupReadyButton" onclick="readyForPickup()">Ready for Pick-up</button>
+            <button id="retrievingButton" onclick="retrieveCar()">Retrieve Parked Cars</button>
+        </div>
+        <div class="box">
+            <h2>Pick-up Queuing:</h2>
+            <ul id="pickupQueueList"></ul>
+        </div>
+        <div class="box">
+            <h2>Ready for Pick-up:</h2>
+            <ul id="pickupReadyList"></ul>
+        </div>
+        <div class="box">
+            <h2>Pick-up Cars:</h2>
+            <ul id="pickupCarsList"></ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

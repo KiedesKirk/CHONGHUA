@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image with Top Box</title>
+    <link rel="stylesheet" href="ForPickupStyles.css">
+</head>
+<body>
+    <h1 class="title">P I C K U P</h1>
+    <div class="container">
+        <div class="top-box">
+            <div class="left-half" id="date"></div>
+            <div class="right-half" id="time"></div>
+        </div>
+        <br>
+        <br>
+        <div class="left-right-container">
+            <div class="left-container">
+                <h1 class="section-title">Q U E U E</h1>
+                <div class="queue-box">
+                    <div class="queue-left-half">
+                        <span class="rfid-text">RFID Number:</span> Box 2 Left
+                    </div>
+                    <div class="queue-right-half">Box 2 Right</div>
+                </div>
+                <br>
+                <div class="queue-box">
+                    <div class="queue-left-half">
+                        <span class="rfid-text">RFID Number:</span> Box 3 Left
+                    </div>
+                    <div class="queue-right-half">Box 3 Right</div>
+                </div>
+                <br>
+                <div class="queue-box">
+                    <div class="queue-left-half">
+                        <span class="rfid-text">RFID Number:</span> Box 4 Left
+                    </div>
+                    <div class="queue-right-half">Box 4 Right</div>
+                </div>
+            </div>
+            <br>
+            <div class="right-container">
+                <h1 class="section-title">R E A D Y</h1>
+                <div class="ready-box" id="ready-box">
+                    <div class="ready-left-half">
+                        <span class="rfid-text">RFID Number:</span> Box 5 Left
+                    </div>
+                    <div class="ready-right-half">Box 5 Right</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateDateAndTime() {
+            var now = new Date();
+
+            var dateElement = document.getElementById('date');
+            var dateString = 'Date: ' + now.toLocaleDateString();
+            dateElement.textContent = dateString;
+
+            var timeElement = document.getElementById('time');
+            var timeString = 'Time: ' + now.toLocaleTimeString();
+            timeElement.textContent = timeString;
+        }
+
+        // Update date and time initially
+        updateDateAndTime();
+
+        // Update date and time every second
+        setInterval(updateDateAndTime, 1000);
+    </script>
+</body>
+</html>
